@@ -46,6 +46,8 @@ Pricable isn't quite a type class because I'm not skilled enough with the type s
 
 I implemented Product as a Pricable and wrote an implementation of the AbstractPricableSpec for Product with Ints
 
+There is a git commit with a tag 'Pricable' at this point
+
 ## Writing a shopping cart
 I don't want to care at this stage how I get the shopping cart, I just want to be able to hold a list of Pricable things and how many times they occur.
 I will have a list of line items. I could just get away with two ints: the count of apples and the count of oranges, but that doesn't
@@ -56,9 +58,23 @@ I now need to write a test to say that the shopping basket can add up apples and
 
 While doing this I realise that (hurrah!) I can reuse pricable.
 
+My tests look horrible so I use pimping to make a mini DSL for the test. 
+Before:    ShoppingBasket(List(LineItem(orange, 1))).price shouldBe 25
+After:     ShoppingBasket(orange, 1).price shouldBe 25
 
+Half way through this I realised that the code would be nicer if the LineItem was pricable as well, so I added some tests for that too
 
+That meant I might as well share the miniDSL and the fixture, so I created the BasketFixture
 
+That done I considered whether to decouple the basket from the line item, but reject the idea: it adds too much complexity for little benefit.
+If this was a real application I suspect I would end up doing that, but I'm following YAGNI at the moment
+
+The code at this point is in Git with the tag 'ShoppingBasket'
+
+# Review
+At 
+
+# Requirements
 
 ## Step 1: Shopping cart
 
