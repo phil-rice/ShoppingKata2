@@ -3,7 +3,7 @@ The object 'Example' holds some example usage
 The tag Step 1 is at the end of Step 1
 
 
-#Summary
+# Summary
 I am doing this kata as though I was doing it for myself. In practice it is likely that the team will not be 
 wanting to use type classes, and if that's the case I am happy to code at the level of the team
 
@@ -15,9 +15,6 @@ I'm fairly happy with the test coverage, although I have overtested the two offe
 I ran out of time, so short circuited some of things I would normally do. The BuyNForY isn't properly generized - it's defined for 'Product'.
 I also didn't properly mock the tests in the 'addOffersToBasket' - I should have decoupled the results from the actual code
 
-
-#My thoughts while doing the kata
-I am detailing here how I approached the problem.
 
 # My first step: read the problem statement, turn it into tests
 I know that I am not great at processing textual requirements. My first goal is to turn the text into executable tests
