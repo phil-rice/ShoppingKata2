@@ -1,7 +1,6 @@
 package org.validoc.money
 
 import org.validoc
-import org.validoc.Money
 import Money._
 
 import scala.reflect.ClassTag

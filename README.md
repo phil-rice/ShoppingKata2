@@ -12,7 +12,7 @@ I need to add scalatest.
 
 This is only a kata, so I don't really need to worry about multiple modules. I do like to have my versions in one place though
 
-## Writing first tests
+## Writing first tests - Money
 I know I need to worry about things being bought. I don't want to make apples and oranges classes as there would be in
 a real shopping application tens of thousands of them. I know these things are going to have a price. The bad news now
 is that price implies money. Money is a really hard concept in Java/Scala. Do we need to extend this kata into currencies or
@@ -32,6 +32,29 @@ I coded up Money, adding a pimper that implements |+| and |*|
 This means hereafter I don't need to worry about how Money will be implemented, and I have captured the activities that Money does. 
 I am a big fan of the idea that 'constraints liberate' and this is a good example of that
 
+I've tagged git with 'Money' at this point
+
+## Writing next tests - pricable
+I now have an interesting question. How do I determine the price for a product. Is it a look up in a database or an in-memory cache
+I am seriously tempted to code up a pricing service as a kleisli with 'Product => Future[Price]' but I think it is too much complexity for now
+So I'll instead have a type class that captures the idea of getting a price from an item in the shopping basket. Another reason I like the
+typeclass is because I am cheating a little: I've looked ahead, and I know that I will need to have things other than products in the
+code base. I will need to have discounts. A third reason is the point I made before about 'constraints liberate'. By locking down my 
+Products to things with the typeclass Pricable, I keep single responsibility code, and have clarity over the operations performed on type
+
+Pricable isn't quite a type class because I'm not skilled enough with the type system to curry types, but its close.
+
+I implemented Product as a Pricable and wrote an implementation of the AbstractPricableSpec for Product with Ints
+
+## Writing a shopping cart
+I don't want to care at this stage how I get the shopping cart, I just want to be able to hold a list of Pricable things and how many times they occur.
+I will have a list of line items. I could just get away with two ints: the count of apples and the count of oranges, but that doesn't
+feel good, and is actually harder to work with. I can use list operations on list, but not over 'count of apples, count of oranges'
+
+## Tests for the requirements for step 1
+I now need to write a test to say that the shopping basket can add up apples and oranges
+
+While doing this I realise that (hurrah!) I can reuse pricable.
 
 
 
@@ -43,7 +66,8 @@ You are building a checkout system for a shop which only sells apples and orange
 - Apples cost 60p 
 - Oranges cost 25p.
 
-Build a checkout system which takes a list of items scanned at the till and outputs the total cost. Make reasonable assumptions about the inputs to your solution; for example, many candidates take a list of strings as input
+Build a checkout system which takes a list of items scanned at the till and outputs the total cost. 
+Make reasonable assumptions about the inputs to your solution; for example, many candidates take a list of strings as input
 
 - For example: [ Apple, Apple, Orange, Apple ] => £2.05
 
