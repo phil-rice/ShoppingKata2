@@ -75,13 +75,31 @@ The code at this point is in Git with the tag 'ShoppingBasket'
 At this point I am feeling quite good. I can represent products, and shopping baskets. Re-reading the specification, I am not certain whether
 I need to model 'scanning' items. 
 
-## Adding scanning items
+## Adding parser
 This is quite straightforwards though, so I decide to do a simple implementation.
 I am going to have a file that holds shopping baskets: each line representing one item
 I need a parser that turns the line into a product. 
 
 And now I have a really interesting question: what do I do about exceptions. Is it normal behavior to have non apples and oranges? For
 now I code this anomalous behavior as an exception. Later I might move this to some Monad for error handling
+
+I have added the parser at git tag Parser
+
+## Folding the list from the file parser into a Shopping basket
+This is pretty straight forwards. I've split it into two responsibilities: loading a file into a sequence of things, and a second 
+one that just does this for shopping baskets. I like methods with single responsibilities
+
+My code for this initially looks like a dogs dinner, so I use a little coding by arrows to make it nicer 
+before: ShoppingBasket(fileParser(is).groupBy(x => x).toList.sortBy(_._1.name).map { case (product, count) => LineItem(product, count.size) })
+after is ~> fileParser ~> aggregate ~> toLineItems ~> ShoppingBasket.apply
+
+## oops moment
+about now I discover I missed a test from the shopping basket: adding in multiple different items. I added it and changed the DSL a little
+I also know I could have a problem with flaky tests because of the issue with 'groupBy making a map and the order is dependant on hashcode', so 
+I sort the items
+
+
+
 
 # Requirements
 

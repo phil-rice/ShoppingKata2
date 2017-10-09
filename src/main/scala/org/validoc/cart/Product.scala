@@ -7,4 +7,7 @@ object Product {
     override def price(p: Product[M])(implicit money: Money[M]) = p.price
   }
 
+  implicit def OrderedForProduct[M] = new Ordering[Product[M]] {
+    override def compare(x: Product[M], y: Product[M]) = x.name.compare(y.name)
+  }
 }
