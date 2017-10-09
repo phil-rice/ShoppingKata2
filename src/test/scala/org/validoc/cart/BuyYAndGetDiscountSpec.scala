@@ -2,10 +2,10 @@ package org.validoc.cart
 
 import BasketFixture._
 
-class AddOffersToBasketSpec extends UnitSpec {
+class BuyYAndGetDiscountSpec extends UnitSpec {
 
-  val threeOrangesForThePriceOfTwo = new BuyNForYOffer[Int](orange, 3, orange.price)
-  val buyTwoApplesGetOneFree = new BuyNForYOffer[Int](apple, 2, apple.price)
+  val threeOrangesForThePriceOfTwo = new BuyYAndGetDiscount[Int](orange, 3, orange.price)
+  val buyTwoApplesGetOneFree = new BuyYAndGetDiscount[Int](apple, 2, apple.price)
 
   val addOffersToBasket = new AddOffersToBasket[Int](Seq(buyTwoApplesGetOneFree, threeOrangesForThePriceOfTwo))
 

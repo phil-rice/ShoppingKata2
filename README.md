@@ -12,7 +12,7 @@ I might chance the discounts so that they say 'what they are discounts for'.
 
 I'm fairly happy with the test coverage, although I have overtested the two offers (mostly because they are in the specification). 
 
-I ran out of time, so short circuited some of things I would normally do. The BuyNForY isn't properly generized - it's defined for 'Product'.
+I ran out of time, so short circuited some of things I would normally do. The BuyNAndGetDiscount isn't properly generized - it's defined for 'Product'.
 I also didn't properly mock the tests in the 'addOffersToBasket' - I should have decoupled the results from the actual code
 
 
@@ -118,7 +118,7 @@ I can do this as Products with a negative price.
 
 I need some way to apply the offers, and work out how many there are. I'm going to do the easiest approach: simply do N for Y.
 
-I have by 'BuyNForYOffer' class and a 'AddOffersToBasket' function. 
+I have by 'BuyNAndGetDiscount' class and a 'AddOffersToBasket' function. 
 
 # Requirements
 
