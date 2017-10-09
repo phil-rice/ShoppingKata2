@@ -10,8 +10,16 @@ object BasketFixture {
 
   implicit def lineItemToListOfLineItems(t: (Product[Int], Int)) = List(LineItem(t._1, t._2))
 
-  implicit def tupleToListOfLineItems(t: (Product[Int], Int, Product[Int], Int)) = t match {
+  implicit def tuple4ToListOfLineItems(t: (Product[Int], Int, Product[Int], Int)) = t match {
     case ((p1, n1, p2, n2)) => List(LineItem(p1, n1), LineItem(p2, n2))
+  }
+
+  implicit def tuple6ToListOfLineItems(t: (Product[Int], Int, Product[Int], Int, Product[Int], Int)) = t match {
+    case ((p1, n1, p2, n2, p3, n3)) => List(LineItem(p1, n1), LineItem(p2, n2), LineItem(p3, n3))
+  }
+
+  implicit def tuple8ToListOfLineItems(t: (Product[Int], Int, Product[Int], Int, Product[Int], Int, Product[Int], Int)) = t match {
+    case ((p1, n1, p2, n2, p3, n3, p4, n4)) => List(LineItem(p1, n1), LineItem(p2, n2), LineItem(p3, n3), LineItem(p4, n4))
   }
 
 }

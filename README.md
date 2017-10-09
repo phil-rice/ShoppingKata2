@@ -1,7 +1,20 @@
+The object 'Example' holds some example usage
+
+#Summary
 I am doing this kata as though I was doing it for myself. In practice it is likely that the team will not be 
 wanting to use type classes, and if that's the case I am happy to code at the level of the team
 
-I am detailing here how I approached the problem
+When I finished I reviewed it. I am a little unhappy with the verbosity of Example and would simplify it a bit. 
+I might chance the discounts so that they say 'what they are discounts for'.
+
+I'm fairly happy with the test coverage, although I have overtested the two offers (mostly because they are in the specification). 
+
+I ran out of time, so short circuited some of things I would normally do. The BuyNForY isn't properly generized - it's defined for 'Product'.
+I also didn't properly mock the tests in the 'addOffersToBasket' - I should have decoupled the results from the actual code
+
+
+#My thoughts while doing the kata
+I am detailing here how I approached the problem.
 
 # My first step: read the problem statement, turn it into tests
 I know that I am not great at processing textual requirements. My first goal is to turn the text into executable tests
@@ -98,8 +111,14 @@ about now I discover I missed a test from the shopping basket: adding in multipl
 I also know I could have a problem with flaky tests because of the issue with 'groupBy making a map and the order is dependant on hashcode', so 
 I sort the items
 
+# Step 2 - offers
 
+Well offers need to be represented in some way. I choose to do it as adding a list of discounts to the shopping basket.
+I can do this as Products with a negative price.
 
+I need some way to apply the offers, and work out how many there are. I'm going to do the easiest approach: simply do N for Y.
+
+I have by 'BuyNForYOffer' class and a 'AddOffersToBasket' function. 
 
 # Requirements
 
