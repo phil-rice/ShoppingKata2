@@ -1,5 +1,8 @@
 The object 'Example' holds some example usage
 
+The tag Step 1 is at the end of Step 1
+
+
 #Summary
 I am doing this kata as though I was doing it for myself. In practice it is likely that the team will not be 
 wanting to use type classes, and if that's the case I am happy to code at the level of the team
