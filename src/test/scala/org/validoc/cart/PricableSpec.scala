@@ -1,4 +1,4 @@
-package org.validoc.money
+package org.validoc.cart
 
 import scala.reflect.ClassTag
 import Pricable._

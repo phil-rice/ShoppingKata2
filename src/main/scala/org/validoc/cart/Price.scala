@@ -1,4 +1,4 @@
-package org.validoc.money
+package org.validoc.cart
 
 trait Pricable[P, M] {
   def price(p: P)(implicit money: Money[M]): M

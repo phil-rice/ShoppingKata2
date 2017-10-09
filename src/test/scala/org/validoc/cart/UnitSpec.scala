@@ -1,4 +1,4 @@
-package org.validoc.money
+package org.validoc.cart
 
 import org.scalatest.{FlatSpec, Matchers}
 

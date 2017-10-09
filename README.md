@@ -72,7 +72,16 @@ If this was a real application I suspect I would end up doing that, but I'm foll
 The code at this point is in Git with the tag 'ShoppingBasket'
 
 # Review
-At 
+At this point I am feeling quite good. I can represent products, and shopping baskets. Re-reading the specification, I am not certain whether
+I need to model 'scanning' items. 
+
+## Adding scanning items
+This is quite straightforwards though, so I decide to do a simple implementation.
+I am going to have a file that holds shopping baskets: each line representing one item
+I need a parser that turns the line into a product. 
+
+And now I have a really interesting question: what do I do about exceptions. Is it normal behavior to have non apples and oranges? For
+now I code this anomalous behavior as an exception. Later I might move this to some Monad for error handling
 
 # Requirements
 

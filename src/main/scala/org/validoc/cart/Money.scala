@@ -1,4 +1,4 @@
-package org.validoc.money
+package org.validoc.cart
 
 trait Money[M] {
   def add(m1: M, m2: M): M
